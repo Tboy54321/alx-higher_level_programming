@@ -1,1 +1,1 @@
-0x01-python-if_else_loops_functions
+Solving tasks based on conditionals and loop in python
