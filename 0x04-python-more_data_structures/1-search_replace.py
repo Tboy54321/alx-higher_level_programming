@@ -5,4 +5,6 @@ def search_replace(my_list, search, replace):
         count += 1
         if n == search:
             my_list[count] = replace
-    return my_list
+        else:
+            continue
+    return (my_list)
