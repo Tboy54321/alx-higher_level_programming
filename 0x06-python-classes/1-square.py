@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-# 1-square.py written by Akinniran Oluwatosin
+# 0-square.py by Akinniran Oluwatosin
+"""Defines a square """
 
 
 class Square:
-    """A square"""
+    """Represents a square"""
 
     def __init__(self, size):
-        """Initializes the square object"""
+        """Initializing this square class
+        Args: size - represnets the size of the square defined
+        """
 
-        self._Square__size = size
-        pass
+        self.__size = size
