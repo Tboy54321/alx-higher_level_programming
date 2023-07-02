@@ -1,0 +1,21 @@
+Test cases for 0_add_integer functions
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(1, 1)
+2
+
+>>> add_integer(1, -4)
+-3
+
+>>> add_integer(-2, -2)
+-4
+
+>>> add_integer(2)
+100
+
+>>> add_integer(2, 'school')
+b must be an integer
+
+>>> add_integer('school', 2)
+a must be an integer
