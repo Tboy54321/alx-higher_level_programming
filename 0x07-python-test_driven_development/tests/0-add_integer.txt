@@ -14,8 +14,11 @@ Test cases for 0_add_integer functions
 >>> add_integer(2)
 100
 
->>> add_integer(2, 'school')
-b must be an integer
+>>> add_integer(2, "school")
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
 
->>> add_integer('school', 2)
-a must be an integer
+>>> add_integer("School")
+Traceback (most recent call last):
+TypeError: a must be an integer

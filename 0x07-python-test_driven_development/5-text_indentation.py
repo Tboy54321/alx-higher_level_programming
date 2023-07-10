@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
+=======
+>>>>>>> 1495cb10971ef23627960ef8ae40c6109ecccc02
 """
 This module contains a function that indents texts
 """
