@@ -96,3 +96,10 @@ class Rectangle(Base):
                     setattr(self, _, kwargs[_])
                 except KeyError:
                     pass
+
+    def to_dictionary(self):
+        list_ = ["x", "y", "id", "height", "width"]
+        list_dict = {}
+        for _ in list_:
+            list_dict[_] = getattr(self, _)
+        return list_dict
