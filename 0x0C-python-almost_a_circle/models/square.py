@@ -14,6 +14,9 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def __str__(self):
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
     def update(self, *args):
         list_ = ["id", "size", "x", "y"]
         if args is not None:
