@@ -17,7 +17,7 @@ class Square(Rectangle):
     def __str__(self):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         list_ = ["id", "size", "x", "y"]
         if args is not None:
             x = 0
@@ -36,4 +36,9 @@ class Square(Rectangle):
                 except KeyError:
                     pass
 
-        
+    def to_dictionary(self):
+        list_ = ["x", "y", "id",  "height"]
+        list_dict = {}
+        for _ in list_:
+            list_dict[_] = getattr(self, _)
+        return list_dict
