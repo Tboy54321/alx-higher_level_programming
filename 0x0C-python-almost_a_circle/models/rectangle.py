@@ -74,13 +74,14 @@ class Rectangle(Base):
             print(" " * self.x + self.width * "#")
 
     def __str__(self):
-        return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}")
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
 
     def update(self, *args, **kwargs):
         list_ = ["id", "width", "height", "x", "y"]
-        x = 0
+
         if args is not None:
+            x = 0
             for _ in list_:
                 try:
                     """args[x] = list_[x]"""

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
@@ -16,5 +16,21 @@ class Square(Rectangle):
 
     def update(self, *args):
         list_ = ["id", "size", "x", "y"]
+        if args is not None:
+            x = 0
+            for _ in list_:
+                try:
+                    """args[x] = list_[x]"""
+                    setattr(self, _, args[x])
+
+                except IndexError:
+                    pass
+                x += 1
+        else:
+            for _ in list_:
+                try:
+                    setattr(self, _, kwargs[_])
+                except KeyError:
+                    pass
 
         
