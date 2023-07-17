@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
 from models.base import Base
+"""Defining the base method"""
 
 
 class Rectangle(Base):
+    """Creating the class named Rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initializes the Rectangle method"""
         self.width = width
         self.height = height
         self.x = x
@@ -14,10 +17,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """Setting the width method"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Setting the width method"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         elif value <= 0:
@@ -65,22 +70,26 @@ class Rectangle(Base):
             self.__y = value
 
     def area(self):
+        """Area of a rectangle"""
         return self.width * self.height
 
     def display(self):
+        """Display method"""
         for _ in range(self.y):
             print()
         for _ in range(self.height):
             print(" " * self.x + self.width * "#")
 
     def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
-
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
+                                                        self.y, self.width,
+                                                        self.height))
 
     def update(self, *args, **kwargs):
+        """Update method"""
         list_ = ["id", "width", "height", "x", "y"]
 
-        if args is not None:
+        if args is not None and bool(args) is True:
             x = 0
             for _ in list_:
                 try:
@@ -98,6 +107,7 @@ class Rectangle(Base):
                     pass
 
     def to_dictionary(self):
+        """To dictionary method"""
         list_ = ["x", "y", "id", "height", "width"]
         list_dict = {}
         for _ in list_:

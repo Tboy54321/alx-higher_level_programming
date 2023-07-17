@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
@@ -19,7 +20,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         list_ = ["id", "size", "x", "y"]
-        if args is not None:
+        if args is not None and bool(args) is True:
             x = 0
             for _ in list_:
                 try:
@@ -36,13 +37,9 @@ class Square(Rectangle):
                 except KeyError:
                     pass
 
-<<<<<<< HEAD
-
-=======
     def to_dictionary(self):
         list_ = ["x", "y", "id",  "height"]
         list_dict = {}
         for _ in list_:
             list_dict[_] = getattr(self, _)
         return list_dict
->>>>>>> refs/remotes/origin/main
