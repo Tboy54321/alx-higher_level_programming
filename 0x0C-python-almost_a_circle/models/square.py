@@ -45,7 +45,7 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """Define the to_dictionary method"""
-        list_ = ["x", "y", "id",  "height"]
+        list_ = ["id", "size", "x",  "y"]
         list_dict = {}
         for _ in list_:
             list_dict[_] = getattr(self, _)
