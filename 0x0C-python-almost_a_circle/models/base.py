@@ -38,10 +38,7 @@ class Base:
             json_file = Base.to_json_string(list_)
 
         with open(file, 'w') as f:
-            if list_objs is None:
-                f.write("[]")
-            else:
-                f.write(json_file)
+            f.write(json_file)
 
     def from_json_string(json_string):
         """From json string method"""
