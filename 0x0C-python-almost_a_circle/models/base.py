@@ -6,11 +6,13 @@ from . import rectangle
 import turtle
 import csv
 
+
 class Base:
     """Defines Base Class"""
     __nb_objects = 0
+
     def __init__(self, id=None):
-        """Initailze the class"""
+        """Initialze the class"""
         if id is not None:
             self.id = id
         else:
