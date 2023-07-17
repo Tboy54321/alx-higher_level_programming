@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-
+"""Creating my Rectangle method"""
 from models.base import Base
-"""Defining the base method"""
 
 
 class Rectangle(Base):

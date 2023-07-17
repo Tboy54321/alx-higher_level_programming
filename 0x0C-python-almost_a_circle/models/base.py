@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Creating my Base class"""
 
 import json
 from . import rectangle
