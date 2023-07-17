@@ -99,3 +99,21 @@ class Base:
                     result = csv.DictWriter(x, fieldnames=squ_list)
                 result.writeheader()
                 result.writerows(list_)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load from file method"""
+        file = "{}.csv".format(cls.__name__)
+        list_ = []
+        try:
+            with open(file) as f:
+                dict_ = csv.DictReader(f)
+                for row in dict_:
+                    row = dict(row)
+                    for _ in row:
+                        row[_] = int(row[_])
+                    instance = cls.create(**row)
+                    list_.append(instance)
+        except FileNotFoundError:
+            return list_
+        return list_
