@@ -56,13 +56,15 @@ class Base:
     def load_from_file(cls):
         file = "{}.json".format(cls.__name__)
         list_ = []
+
         try:
             with open(file, 'r') as f:
                 json_string = f.read()
                 dict_list = cls.from_json_string(json_string)
-                for _ in dict_list:
-                    instance = cls.create(**_)
+                for item in dict_list:
+                    instance = cls.create(**item)
                     list_.append(instance)
         except FileNotFoundError:
             return list_
+
         return list_
