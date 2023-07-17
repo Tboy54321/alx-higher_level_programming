@@ -45,34 +45,24 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Update the class Base and returns a instance with all
-           attributes already set
-        Args:
-           dictionary: Dictionary with all attributes of the object
-        Return:
-           A instance with all attributes already set
-        """
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)
+            sample_file = cls(1, 1)
         elif cls.__name__ == "Square":
-            dummy = cls(1)
-        dummy.update(**dictionary)
-        return dummy
+            sample_file = cls(1)
+        sample_file.update(**dictionary)
+        return sample_file
 
     @classmethod
     def load_from_file(cls):
-        """Method that returns a list of instances
-           - the type of these instances depends on cls
-        """
-        filename = "{}.json".format(cls.__name__)
-        instance_list = []
+        file = "{}.json".format(cls.__name__)
+        list_ = []
         try:
-            with open(filename, 'r') as f:
+            with open(file, 'r') as f:
                 json_string = f.read()
-                dictionary_list = cls.from_json_string(json_string)
-                for item in dictionary_list:
-                    instance = cls.create(**item)
-                    instance_list.append(instance)
+                dict_list = cls.from_json_string(json_string)
+                for _ in dict_list:
+                    instance = cls.create(**_)
+                    list_.append(instance)
         except FileNotFoundError:
-            return instance_list
-        return instance_list
+            return list_
+        return list_
