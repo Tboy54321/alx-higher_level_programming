@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Creating my Base class"""
 import json
+import csv
 
 
 class Base:
@@ -76,3 +77,25 @@ class Base:
             return list_
 
         return list_
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Created save to file method"""
+        file = "{}.csv".format(cls.__name__)
+        list_ = []
+        if list_objs is not None:
+            for _ in list_objs:
+                dict = _.to_dictionary()
+                list_.append(dict)
+        rect_list = ['id', 'width', 'height', 'x', 'y']
+        squ_list = ['id', 'size', 'x', 'y']
+        with open(file, mode='w') as x:
+            if list_objs is None:
+                x.write("[]")
+            else:
+                if cls.__name__ == 'Rectangle':
+                    result = csv.DictWriter(x, fieldnames=rect_list)
+                elif cls.__name__ == 'Square':
+                    result = csv.DictWriter(x, fieldnames=squ_list)
+                result.writeheader()
+                result.writerows(list_)
