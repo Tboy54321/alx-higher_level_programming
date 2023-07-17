@@ -29,13 +29,14 @@ class Base:
         """Save to file"""
         file = "{}.json".format(cls.__name__)
         list_ = []
-        if list_objs is None:
-            return []
-        else:
+        if list_objs is not None:
             for _ in list_objs:
                 dict = _.to_dictionary()
                 list_.append(dict)
             json_file = Base.to_json_string(list_)
+        else:
+            return []
+
 
         with open(file, 'w') as f:
             if list_objs is None:
