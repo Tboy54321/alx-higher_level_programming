@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-argc = process.argv;
+const argc = process.argv;
 
 if (argc[2] === '' && argc[3] === '') {
 	argc[3] = 'undefined';
