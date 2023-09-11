@@ -1,3 +1,7 @@
 #!/usr/bin/node
 
-argc = process.argv
+const argc = process.argv
+if (!isNaN(parseInt(argc[2])))
+	console.log(parseInt(argc[2]))
+else
+	console.log('Not a number')
