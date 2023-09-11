@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
-numberOfArguments = process.argv.length - 2;
+argc = process.argv.length - 2;
 
-if (numberOfArguments === 0)
+if (argc === 0)
 	console.log('No argument');
-else if (numberOfArguments === 1)
+else if (argc === 1)
 	console.log('Argument found');
 else
 	console.log('Arguments found');
