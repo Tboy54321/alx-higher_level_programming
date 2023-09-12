@@ -2,16 +2,16 @@
 const x = process.argv[2];
 
 if (!parseInt(x)) {
-	console.log('Missing size');
+  console.log('Missing size');
 } else {
-	for (let i = 0; i < x; i++) {
-		let y = 0;
-		let myVar = '';
+  for (let i = 0; i < x; i++) {
+    let y = 0;
+    let myVar = '';
 
-		while (y < x) {
-			myVar = myVar + 'X';
-			y++;
-		}
-		console.log(myVar);
-	}
+    while (y < x) {
+      myVar = myVar + 'X';
+      y++;
+    }
+    console.log(myVar);
+  }
 }
