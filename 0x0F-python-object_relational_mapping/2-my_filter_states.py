@@ -19,7 +19,8 @@ def list_states(username, password, database_name, name_searched):
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", (name_searched,))
+    cursor.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC",
+                   (name_searched,))
 
     rows = cursor.fetchall()
 
