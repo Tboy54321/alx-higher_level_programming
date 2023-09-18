@@ -17,7 +17,7 @@ def print_first_state(username, password, database_name):
 
     session = Session()
     try:
-        new_state = session.query(State).filter(State.id == 3).one()
+        new_state = session.query(State).filter(State.id == 3).first()
         
         new_state.name = "New Mexico"
 
