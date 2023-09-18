@@ -1,37 +1,29 @@
 #!/usr/bin/python3
-'''
-Script that prints the first state from the database
-'''
+"""
+This script changes the name of a State object
+from the database `hbtn_0e_6_usa`.
+"""
 
+from sys import argv
+from model_state import State, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
-import sys
 
+if __name__ == "__main__":
+    """
+    Updates a State object on the database.
+    """
 
-def print_first_state(username, password, database_name):
-    engine = create_engine(f'mysql://{username}:\
-            {password}@localhost:3306/{database_name}')
+    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+            argv[1], argv[2], argv[3])
 
+    engine = create_engine(db_url)
     Session = sessionmaker(bind=engine)
 
     session = Session()
-    try:
-        new_state = session.query(State).filter(State.id == 3).first()
-        new_state.name = "New Mexico"
 
-        session.commit()
-    except Exception as e:
-        session.roolback()
-    finally:
-        session.close()
+    state = session.query(State).filter(State.id == 2).first()
+    state.name = "New Mexico"
+    session.commit()
 
-
-if __name__ == "__main__":
-    from model_state import Base, State
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database_name = sys.argv[3]
-
-    print_first_state(username, password, database_name)
+    session.close()
