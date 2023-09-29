@@ -12,5 +12,6 @@ def fetch_header(url):
         response = request.info()
         print(response['X-Request-Id'])
 
+
 if __name__ == "__main__":
     fetch_header(argv[1])
